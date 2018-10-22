@@ -1,0 +1,20 @@
+mixin card(card)
+    li.products__item.product
+        div(class=[{'product__content': true, 'product__content--selected': card.selected, 'product__content--hover': card.selected, 'product__content--disabled': card.disabled}], tabindex=card.disabled ? false : '0')
+            p.product__tagline= card.tagline
+            p.product__tagline.product__tagline--selected Котэ не одобряет?
+            h2.product__name= card.name
+            h3.product__type= card.type
+            span.product__amount <b>#{card.amount}</b> порций
+            br
+            span.product__bonus #{card.bonus} в подарок
+            br
+            if card.note
+                span.product__note заказчик доволен
+            .product__weight
+                span.product__mass= card.mass
+                span.product__kg= card.kg
+        p.product__sub.product__sub--default= 'Чего сидишь? Порадуй котэ, '
+            span(tabindex='0').product__link купи.
+        p.product__sub.product__sub--selected= card.sub
+        p.product__sub.product__sub--disabled Печалька, #{card.type} закончился.

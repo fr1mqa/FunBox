@@ -1,0 +1,14 @@
+include pug/card
+include pug/variables
+
+doctype html
+html(lang="ru")
+    include pug/head
+    body.page
+        h1.page__tagline Ты сегодня покормил кота?
+        section.products
+            h2.visually-hidden Карточки товаров
+            ul.products__list
+                for card in cardsList
+                    +card(card)
+        script(src="js/script.min.js")

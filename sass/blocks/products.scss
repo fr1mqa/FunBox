@@ -1,0 +1,16 @@
+.products {
+  margin-top: -3px;
+}
+
+.products__item {
+  margin: 0 auto;
+  width: 320px;
+}
+
+@media (min-width: 680px) {
+  .products__list {
+    display: flex;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+  }
+}

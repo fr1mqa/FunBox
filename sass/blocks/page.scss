@@ -1,0 +1,22 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.page__tagline {
+  text-align: center;
+  font-family: "Exo 2", sans-serif;
+  font-size: 36px;
+  line-height: 36px;
+  font-weight: lighter;
+  color: $white;
+  margin-top: -7px;
+  margin-bottom: 31px;
+}
+
+@media (min-width: 960px) {
+  .page {
+    height: 100vh;
+  }
+}
