@@ -3,10 +3,9 @@
 var productsList = document.querySelectorAll('.product__content');
 var linksList = document.querySelectorAll('.product__link');
 
-
-var productClickHandler = function() {
+var productClickHandler = function(evt) {
     if (!this.classList.contains('product__content--disabled')) {
-        if(event.type === 'keydown' && event.code === 'Enter') {
+        if(evt.type === 'keydown' && (evt.code === 'Enter' || evt.keyCode === 13)) {
             if (this.classList.contains('product__content--selected')) {
                 this.classList.remove('product__content--selected');
                 this.classList.remove('product__content--hover');
@@ -15,7 +14,7 @@ var productClickHandler = function() {
                 this.classList.add('product__content--hover');
                 this.blur();
             }
-        } else if (event.type === 'click') {
+        } else if (evt.type === 'click') {
             if (this.classList.contains('product__content--selected')) {
                 this.classList.remove('product__content--selected');
                 this.classList.remove('product__content--hover');
@@ -33,20 +32,17 @@ var productMouseLeaveHandler = function() {
     this.classList.add('product__content--hover');
 };
 
-var linkClickHandler = function () {
-    if((event.type === 'keydown' && event.code === 'Enter') || event.type === 'click') {
+var linkClickHandler = function (evt) {
+    if((evt.type === 'keydown' && (evt.code === 'Enter' || evt.keyCode === 13) || evt.type === 'click')) {
         this.offsetParent.children[0].classList.add('product__content--hover');
         this.offsetParent.children[0].classList.add('product__content--selected');
+        this.blur();
     }
 };
 
-
-productsList.forEach(function (product) {
-   product.addEventListener('click', productClickHandler);
-   product.addEventListener('keydown', productClickHandler);
-});
-
-linksList.forEach(function (link) {
-    link.addEventListener('click', linkClickHandler);
-    link.addEventListener('keydown', linkClickHandler);
-});
+for (var i = 0; i < productsList.length; i++) {
+    productsList[i].addEventListener('click', productClickHandler);
+    productsList[i].addEventListener('keydown', productClickHandler);
+    linksList[i].addEventListener('click', linkClickHandler);
+    linksList[i].addEventListener('keydown', linkClickHandler);
+}

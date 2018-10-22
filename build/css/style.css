@@ -539,7 +539,8 @@ body {
 .product__tagline {
   font-size: 16px;
   color: #666;
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+  z-index: 5; }
   .product__tagline--selected {
     display: none; }
   .product__tagline::before {
